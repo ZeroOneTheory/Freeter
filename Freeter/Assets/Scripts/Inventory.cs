@@ -37,7 +37,9 @@ public class Inventory : MonoBehaviour {
                 Debug.Log("Not enough space in inventory");
                 return false;
             }
+
             items.Add(item);
+
             if(onItemChangedCallBack !=null)
                 onItemChangedCallBack.Invoke();
         }

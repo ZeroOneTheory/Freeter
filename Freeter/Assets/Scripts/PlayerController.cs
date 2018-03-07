@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
 
@@ -26,6 +25,9 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
 
         // if Left mouse is pressed
         if (Input.GetMouseButtonDown(0)) //--------------- Movement
