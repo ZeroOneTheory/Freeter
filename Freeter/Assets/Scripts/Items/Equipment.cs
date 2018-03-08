@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Equipment : MonoBehaviour {
+[CreateAssetMenu(fileName ="New Equipment", menuName = "Inventory/Equipment")]
+public class Equipment : Item {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public EquipmentSlot equipSlot;
+
+    public int armorModifier;
+    public int damageModifier;
+
+    public override void Use()
+    {
+        base.Use();
+        EquipmentManager.instance.Equip(this);
+        RemoveFromInventory();
+    }
 }
+
+public enum EquipmentSlot { Head, Chest, Leg, Weapon, Shield, Feet }
